@@ -38,24 +38,24 @@ print(soumyas_bag.number_sold)
 ### Answer 1
 
 ```python
-#What Prints #1
+#Print #1
 []
-#What Prints #2
+#Print #2
 ['blue', 'red', 'green', 'red']
-#What Prints #3
+#Print #3
 blue
-#What Prints #4
+#Print #4
 1
-#What Prints #5
+#Print #5
 1
-#What Prints #6
+#Print #6
 []
-#What Prints #7
+#Print #7
 ['red', 'green', 'red']
 None
-#What Prints #8
+#Print #8
 2
-#What Prints #9
+#Print #9
 2
 ```
 
@@ -77,7 +77,13 @@ def take_color(self, color):
 ### Answer 2
 
 ```python
-# answer here
+def take_color(self, color):
+    	for i in range(len(self.skittles)):
+    		take = self.skittles[i].color
+    		if take == color:
+    			return self.skittles.pop(i)
+    		else:
+    			return None
 
 ```
 
@@ -95,6 +101,9 @@ def take_all(self):
 ### Answer 3
 
 ```python
-# answer here
+def take_all(self):
+    	for i in range(len(self.skittles)):
+    		print(self.skittles[0].color)
+    		self.skittles.pop(0)
 
 ```
