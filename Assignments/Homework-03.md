@@ -38,8 +38,26 @@ print(soumyas_bag.number_sold)
 ### Answer 1
 
 ```python
-# answers here
-
+"""What Prints #1?
+[]
+"""What Prints #2?
+['blue', 'red', 'green', 'red']
+"""What Prints #3?
+blue
+"""What Prints #4?
+1
+"""What Prints #5?
+1
+"""What Prints #6?
+[]
+"""What Prints #7?
+['red', 'green', 'red']
+"""What Prints #8?
+None
+"""What Prints #9?
+2
+"""What Prints #10?
+2
 ```
 
 **2)**  Write a new method for the Bag class called take color, which takes a color and
