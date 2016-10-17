@@ -13,7 +13,7 @@ class fraction(object):
         self.denominator = d
 
     def __mul__(self,rhs):
-        x = self.numerator *rhs.numerator
+        x = self.numerator * rhs.numerator
         y = self.denominator * rhs.denominator
         return fraction(x,y)
         
