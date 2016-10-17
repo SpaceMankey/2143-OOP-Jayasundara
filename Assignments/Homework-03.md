@@ -38,25 +38,24 @@ print(soumyas_bag.number_sold)
 ### Answer 1
 
 ```python
-"""What Prints #1?
+"""What Prints #1?"""
 []
-"""What Prints #2?
+"""What Prints #2?"""
 ['blue', 'red', 'green', 'red']
-"""What Prints #3?
+"""What Prints #3?"""
 blue
-"""What Prints #4?
+"""What Prints #4?"""
 1
-"""What Prints #5?
+"""What Prints #5?"""
 1
-"""What Prints #6?
+"""What Prints #6?"""
 []
-"""What Prints #7?
+"""What Prints #7?"""
 ['red', 'green', 'red']
-"""What Prints #8?
 None
-"""What Prints #9?
+"""What Prints #8?"""
 2
-"""What Prints #10?
+"""What Prints #9?"""
 2
 ```
 
