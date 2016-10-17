@@ -66,11 +66,6 @@ of that color, then it returns `None`.
 ```python
 def take_color(self, color):
 
-
-
-
-
-
 ```
 
 
@@ -92,9 +87,6 @@ in the current bag and prints the color of the each Skittle taken from the bag.
 
 ```python
 def take_all(self):
-
-
-
 
 ```
 
