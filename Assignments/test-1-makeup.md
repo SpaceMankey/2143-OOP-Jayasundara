@@ -71,10 +71,6 @@ def sortList(States):
         
 
 ```
-**OR**
-```python
-States = ['Alabama', 'Illinois', 'Maine', 'New Hampshire', 'New York', 'Texas', 'Vermont', 'Wyoming'] 
-```
 **B)**
 ```python 
 def addInOrder(L):
