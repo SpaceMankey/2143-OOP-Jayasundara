@@ -39,7 +39,6 @@ print "Total Employee %d" % Employee.empCount
 ## Answer 1
 
 ```python
-#print ("Total Employee %d" % Employee.empCount)
 
 
 
