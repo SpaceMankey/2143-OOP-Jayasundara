@@ -1,6 +1,5 @@
 import random
 import abc
-
 """
 @Class: Dice
 @Description: 
