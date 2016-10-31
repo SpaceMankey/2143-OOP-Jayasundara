@@ -1,4 +1,3 @@
-```python
 """
 
 @Name: Mithinda Anuk Jayasundara
@@ -380,4 +379,3 @@ def main():
     
     
 main()
-```
