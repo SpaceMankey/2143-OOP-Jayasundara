@@ -1,3 +1,10 @@
+"""
+
+@Name: Mithinda Anuk Jayasundara
+@Assignment: Program2_Part2
+@Edits: Added 'Aggressive','Cautious' and 'SprintToFinish' methods for stratergies
+
+"""
 import random
 import abc
 
