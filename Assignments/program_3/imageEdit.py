@@ -29,7 +29,7 @@ class ImageEd(object):
                 opp = self.height - y
                 y = opp
                 
-   def posterize(self, img):
+    def posterize(self, img):
         for p in getPixels(img):
             r = getRed(p)
             g = getGreen(p)
@@ -85,23 +85,23 @@ class ImageEd(object):
         for p in getPixels(img):
             setRed(p,255-getRed(p))
             setGreen(p,255-getGreen(p))
-            setBlue(p,255-getBlue(p)) 
-           
+            setBlue(p,255-getBlue(p))
+    
     def makeOutline(self, img):
-        imgEdge=makeEmptyPicture(getWidth(img),getHeight(img))
-        for x in range (0, getWidth(img)-1):
-          for y in range (0, getHeight(img)-1):
-            here=getPixel(imgEdge,x,y)
-            down = getPixel(img,x,y+1)
-            right = getPixel(img, x+1,y)
-            hereL=(getRed(here)+getGreen(here)+getBlue(here))/3
-            downL=(getRed(down)+getGreen(down)+getBlue(down))/3
-            rightL=(getRed(right)+getGreen(right)+getBlue(right))/3
-            if abs (hereL-downL)>100 and abs(hereL-rightL)>100:
-              setColor(here,black)
-            if abs (hereL-downL)<=100 or abs(hereL-rightL)<=100:
-              setColor(here,white)
-          warholize(imgEdge)
+      imgEdge=makeEmptyPicture(getWidth(img),getHeight(img))
+      for x in range (0, getWidth(img)-1):
+        for y in range (0, getHeight(img)-1):
+          here=getPixel(imgEdge,x,y)
+          down = getPixel(img,x,y+1)
+          right = getPixel(img, x+1,y)
+          hereL=(getRed(here)+getGreen(here)+getBlue(here))/3
+          downL=(getRed(down)+getGreen(down)+getBlue(down))/3
+          rightL=(getRed(right)+getGreen(right)+getBlue(right))/3
+          if abs (hereL-downL)>100 and abs(hereL-rightL)>100:
+            setColor(here,black)
+          if abs (hereL-downL)<=100 or abs(hereL-rightL)<=100:
+            setColor(here,white)
+      warholize(imgEdge)
 
     def warholize(imgEdge):
       w= getWidth(imgEdge)
@@ -121,10 +121,10 @@ class ImageEd(object):
           px=getPixel(imgEdge,x,y)
           r=getRed(px)
           pxNew=getPixel(imgNew,x,y)
-      if r >0:
-        setColor(pxNew,yellow)
-      else:
-        setColor(pxNew,blue)
+        if r >0:
+          setColor(pxNew,yellow)
+        else:
+          setColor(pxNew,blue)
 
       for x in range(0,w/2):
         for y in range (h/2,h):
@@ -135,6 +135,7 @@ class ImageEd(object):
             setColor(pxNew,green)
           else:
             setColor(pxNew,red)
+            
       for x in range (w/2,w):
         for y in range (0,h/2):
           px=getPixel(imgEdge,x,y)
@@ -144,4 +145,4 @@ class ImageEd(object):
             setColor(pxNew,red)
           else:
             setColor(pxNew,green)
-      return imgNew
+      return imgNew        
