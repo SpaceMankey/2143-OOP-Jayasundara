@@ -1,3 +1,4 @@
+```python
 from PIL import Image
 import urllib, cStringIO
 import random
@@ -11,15 +12,15 @@ class ImageEd(object):
 
     def glass_effect(self, img, dist = 5):
         nums = [x for x in range(i-dist, i+dist) if x >=0]
-        choice = random.choice(nums)
+        num = random.num(nums)
         for x in range(dist, self.width-dist):
             for y in range(-dist, self.height-dist):
                 for i in range(-dist, dist):
                     for j in range(-dist, dist):
                         pix = img.getpixel((x+i, y+j))
-                        r = choice[0]
-                        g = choice[1]
-                        b = choice[2]
+                        r = num[0]
+                        g = num[1]
+                        b = num[2]
                 img.putpixel((x,y),(r,g,b))
 
                 
@@ -86,6 +87,11 @@ class ImageEd(object):
             setRed(p,255-getRed(p))
             setGreen(p,255-getGreen(p))
             setBlue(p,255-getBlue(p))
+            
+    ""
+    Warhole Effect code cited from
+    http://stackoverflow.com/questions/2337110/jython-image-manipulation
+    ""        
     
     def makeOutline(self, img):
       imgEdge=makeEmptyPicture(getWidth(img),getHeight(img))
@@ -101,9 +107,9 @@ class ImageEd(object):
             setColor(here,black)
           if abs (hereL-downL)<=100 or abs(hereL-rightL)<=100:
             setColor(here,white)
-      warholize(imgEdge)
+      warholeEffect(imgEdge)
 
-    def warholize(imgEdge):
+    def warholeEffect(imgEdge):
       w= getWidth(imgEdge)
       h= getHeight(imgEdge)
       imgNew= makeEmptyPicture( w, h )
@@ -146,3 +152,4 @@ class ImageEd(object):
           else:
             setColor(pxNew,green)
       return imgNew        
+```
