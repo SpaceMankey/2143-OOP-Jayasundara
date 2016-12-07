@@ -11,27 +11,34 @@ class ImageEd(object):
         self.height = self.img.size[1]
 
     def glass_effect(self, img, dist = 5):
+        imgNew = img
         nums = [x for x in range(i-dist, i+dist) if x >=0]
         num = random.num(nums)
         for x in range(dist, self.width-dist):
             for y in range(-dist, self.height-dist):
                 for i in range(-dist, dist):
                     for j in range(-dist, dist):
-                        pix = img.getpixel((x+i, y+j))
+                        pix = imgNew.getpixel((x+i, y+j))
                         r = num[0]
                         g = num[1]
                         b = num[2]
-                img.putpixel((x,y),(r,g,b))
+                imgNew.putpixel((x,y),(r,g,b))
+        imgNew.save('GlassEffect.jpg')
+        imgNew.show()       
 
                 
     def flip(self, img):
+        imgNew = img
         for x in self.width:
             for y in self.height:
-                opp = self.height - y
-                y = opp
+                pixel = self.height - y
+                y = pixel
+        imgNew.save('flip.jpg')
+        imgNew.show()        
                 
     def posterize(self, img):
-        for p in getPixels(img):
+        imgNew = img
+        for p in getPixels(imgNew):
             r = getRed(p)
             g = getGreen(p)
             b = getBlue(p)
@@ -62,8 +69,11 @@ class ImageEd(object):
                 setBlue(p,159)
             elif(b < 256):
                 setBlue(p,223)
-                
+        imgNew.save('Posterize.jpg')
+        imgNew.show()
+        
     def blur(self, img, blur_power = 5):
+        imgNew = img
         r = 0
         g = 0
         b = 0
@@ -72,28 +82,32 @@ class ImageEd(object):
             for y in range(blur_power, self.height-blur_power):
                 for i in range(-blur_power, blur_power):
                     for j in range(-blur_power, blur_power):
-                        pix = img.getpixel((x+i, y+j))
+                        pix = imgNew.getpixel((x+i, y+j))
                         r += pix[0]
                         g += pix[1]
                         b += pix[2]
-                img.putpixel((x,y), (int(r/d), int(g/d), int(b/d)))
+                imgNew.putpixel((x,y), (int(r/d), int(g/d), int(b/d)))
                 r = 0
                 g = 0
-                b = 0
+                b = 0        
+        imgNew.save('Blur.jpg')
+        imgNew.show()     
                         
 
     def solarize(self, img):
-        for p in getPixels(img):
+        imgNew = img
+        for p in getPixels(imgNew):
             setRed(p,255-getRed(p))
             setGreen(p,255-getGreen(p))
             setBlue(p,255-getBlue(p))
-            
+        imgNew.save('Solarize.jpg')
+        imgNew.show()     
     ""
     Warhole Effect code cited from
     http://stackoverflow.com/questions/2337110/jython-image-manipulation
     ""        
     
-    def makeOutline(self, img):
+    def Warholize(self, img):
       imgEdge=makeEmptyPicture(getWidth(img),getHeight(img))
       for x in range (0, getWidth(img)-1):
         for y in range (0, getHeight(img)-1):
@@ -107,8 +121,10 @@ class ImageEd(object):
             setColor(here,black)
           if abs (hereL-downL)<=100 or abs(hereL-rightL)<=100:
             setColor(here,white)
-      warholeEffect(imgEdge)
-
+      imgNew = warholeEffect(imgEdge)
+      imgNew.save('Warhole.jpg')
+      imgNew.show()
+    
     def warholeEffect(imgEdge):
       w= getWidth(imgEdge)
       h= getHeight(imgEdge)
