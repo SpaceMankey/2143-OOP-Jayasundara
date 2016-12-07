@@ -1,4 +1,4 @@
-```python
+
 from PIL import Image
 import urllib, cStringIO
 import random
@@ -152,4 +152,4 @@ class ImageEd(object):
           else:
             setColor(pxNew,green)
       return imgNew        
-```
+
