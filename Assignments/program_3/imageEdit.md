@@ -221,5 +221,5 @@ class ImageEd(object):
                     			setColor(pxNew,red)
                 		else:
                     			setColor(pxNew,green)
-return imgNew
+			return imgNew
 ```
