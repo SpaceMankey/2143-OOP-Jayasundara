@@ -58,17 +58,19 @@ class ImageEd(object):
                         			g = choice[1]
                         			b = choice[2]
                 		img.putpixel((x,y),(r,g,b))
-        	return self.img       
+        	return img       
 
                 
     	def flip(self, img=None):
         	if img == None:
             		img = self.img
         	for x in range(self.width):
-            		for y in range(self.height):
-                		pixel = self.height - y
-                		y = pixel
-        	return self.img          
+            		for y in range(self.height//2):
+                		pixelX = img.getpixel(x,y)
+				pixelY = img.getpixel(x,self.height - x)
+				img.putpixel((x,self.height - x),pixelX)
+				img.putPixel((x,y), pixelY)
+        	return img          
                 
     	def posterize(self, img=None, snapVal = 50):
         	if img == None:
@@ -85,7 +87,7 @@ class ImageEd(object):
                 		b = snap_color(b, snapVal)
                 
                 	img.putpixel((x,y), rgb)            
-        	return self.img 
+        	return img 
     
     	def snap_color(self,color,snap_val):
         	color = int(color)
@@ -96,17 +98,17 @@ class ImageEd(object):
             		color += (snap_val - m)
         	return int(color)    
     
-    	def blur(self, img=None, blur_power = 5):
+    	def blur(self, img=None, kernel_size = 5):
         	if img == None:
             	img = self.img
         	r = 0
         	g = 0
         	b = 0
-        	d = 2*blur_power * 2*blur_power
-        	for w in range(blur_power, self.width-blur_power):
-            		for x in range(blur_power, self.height-blur_power):
-                		for y in range(-blur_power, blur_power):
-                    			for z in range(-blur_power, blur_power):
+        	d = 2*kernel_size * 2*kernel_size
+        	for w in range(kernel_size, self.width-kernel_size):
+            		for x in range(kernel_size, self.height-kernel_size):
+                		for y in range(-kernel_size, kernel_size):
+                    			for z in range(-kernel_size, kernel_size):
                         			pix = img.getpixel((w+y, x+z))
                         			r += pix[0]
                         			g += pix[1]
@@ -115,7 +117,7 @@ class ImageEd(object):
                 		r = 0
                 		g = 0
                 		b = 0        
-        	return self.img       
+        	return img       
                         
 
 	def solarize(self, img=None, intensity = 150):
@@ -142,7 +144,7 @@ class ImageEd(object):
 				    	b = b + intensity
                     
                 		img.putpixel((x, y), (tot))
-        	return self.img
+        	return img
     
    
 
@@ -168,7 +170,7 @@ class ImageEd(object):
                 	if abs (hereL-downL)<=100 or abs(hereL-rightL)<=100:
                     		setColor(here,white)
         	img = Warholize(imgEdge)
-        	return self.img  
+        	return img  
     
 	def Warholize(imgEdge):
         	w= getWidth(imgEdge)
