@@ -1,6 +1,6 @@
-## Mithinda Anuk Jayasundara
-## Object Oriented Programming
-## Program 3
+### Mithinda Anuk Jayasundara
+#### Object Oriented Programming
+#### Program 3
 
 -----
 
