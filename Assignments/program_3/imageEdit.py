@@ -107,11 +107,11 @@ class ImageEd(object):
             		for x in range(blur_power, self.height-blur_power):
                 		for y in range(-blur_power, blur_power):
                     			for z in range(-blur_power, blur_power):
-                        			pix = imgNew.getpixel((w+y, x+z))
+                        			pix = img.getpixel((w+y, x+z))
                         			r += pix[0]
                         			g += pix[1]
                         			b += pix[2]
-                		imgNew.putpixel((w,x), (int(r/d), int(g/d), int(b/d)))
+                		img.putpixel((w,x), (int(r/d), int(g/d), int(b/d)))
                 		r = 0
                 		g = 0
                 		b = 0        
